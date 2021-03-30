@@ -45,12 +45,7 @@ const options = {
     const server = express();
 
     // Define variable
-    const listener = expressJSDocSwagger(server)(options as any);
-    listener.on("finish", (swaggerObject) => {
-      console.log(__dirname);
-      console.log(JSON.stringify(swaggerObject, null, 2), "open api"); // This will print JSON OpenAPI result
-    });
-
+    expressJSDocSwagger(server)(options as any);
     server.all("*", (req: Request, res: Response) => {
       return handle(req, res);
     });
