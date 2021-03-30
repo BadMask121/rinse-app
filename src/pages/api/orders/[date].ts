@@ -20,6 +20,7 @@
  * Customers order failed to return
  * @typedef {object} failedResponse
  * @property {integer} code.required 400 - error code to return error http codes
+ * @property {boolean} error true - error status if its true or false
  * @property {string} message - success message
  */
 
@@ -56,6 +57,9 @@ export default async (req: any, res, next) => {
           return atimeInMiliSeconds > btimeInMiliSeconds ? -1 : 1;
         });
 
+        /**
+         * filters the sorted orders by the date it was assigned to @param date
+         */
         if (date && date !== "all")
           return sorted.filter((o) =>
             date ? formatDate(o.time_assigned) === formatDate(date) : date
@@ -65,10 +69,14 @@ export default async (req: any, res, next) => {
       }
     })) as CustomerOrder[];
 
-    res.status(200).json({ data });
+    res.status(200).json({ data, code: 200 });
     return;
   } catch (error) {
     console.log(error);
-    return Promise.reject(new Error("Error occurred"));
+    res.status(400).json({
+      code: 400,
+      error: true,
+      message: "Error occurred",
+    });
   }
 };

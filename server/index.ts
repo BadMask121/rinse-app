@@ -10,15 +10,15 @@ const port = process.env.PORT || 3000;
 const options = {
   info: {
     version: "1.0.0",
-    title: "Merchant Api",
+    title: "Rinse Orders Map Api Documentation",
     license: {
       name: "MIT",
     },
   },
   servers: [
     {
-      url: "http://localhost:3000/",
-      description: "The Stagin api url",
+      url: "http://localhost:3000/api",
+      description: "The local endpoint path",
     },
   ],
   security: {
