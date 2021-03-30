@@ -1,0 +1,42 @@
+.container{
+    height: 500px;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(217, 226, 236, 0.8);
+}
+.listContainer{
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 5rem;
+    margin-top: 2rem;
+    margin-bottom: 0;
+}
+
+.listContainer ul {
+    list-style-type: none;
+    list-style: none;
+    max-height: 300px;
+    overflow-y: scroll;
+    min-width: max-content;
+}
+
+.listContainer ul li{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 5px;
+    padding: 5px;
+    line-height: 25px;
+    font-size: 15px;
+} 
+.listContainer ul li b{
+    font-size: 14px;
+}
+.datePicker{
+    width: 200px;
+    
+}
+.datePicker * > div{
+        z-index: 1300 !important;
+    }
