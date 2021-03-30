@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "dev": "ts-node --project tsconfig.server.json server/index.ts",
+    "build:server": "tsc --project tsconfig.server.json",
+    "build:next": "next build",
+    "build": "npm run build:next && npm run build:server",
+    "start": "NODE_ENV=production node dist/index.js"
   },
   "dependencies": {
     "@atlaskit/datetime-picker": "^10.0.11",
@@ -29,6 +31,7 @@
     "@types/leaflet": "^1.7.0",
     "@types/node": "^14.14.37",
     "@types/react": "^17.0.3",
+    "ts-node": "^9.1.1",
     "typescript": "^4.2.3"
   }
 }
